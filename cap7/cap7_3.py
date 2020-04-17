@@ -15,6 +15,4 @@ data_full = pd.read_csv(dir_trab  + r'\datos\pima_full.csv', sep=',' ,index_col=
 sns.pairplot(data_full, kind="reg")
 plt.show()
 
-
-dat = ../'datos'
  
