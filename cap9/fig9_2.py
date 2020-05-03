@@ -14,7 +14,6 @@ def mco_func(X1, Y1):
     Beta = np.dot(invXX, XTY) 
     return Beta
 
-# Figura 8.1
 # Datos
 dict_dat = {}
 dict_dat['edad'] = [23, 22, 22, 25, 27, 20, 31, 23, 27, 28, 22, 24]

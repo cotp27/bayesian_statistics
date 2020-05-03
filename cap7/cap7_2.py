@@ -14,7 +14,7 @@ seed_rep = 10
 
 #----------------------------------------------------------------------------#
 # Directorio de trabajo
-dir_trab = r'C:\Users\coyol\OneDrive\Escritorio\bayesian_python\py_programs\cap7'
+dir_trab = r'C:\Users\coyol\OneDrive\Escritorio\bayesian_python\py_programs'
 data = pd.read_csv(dir_trab  + r'\datos\reading.csv', sep=',' ,index_col=0)
 
 # Parametros Prior

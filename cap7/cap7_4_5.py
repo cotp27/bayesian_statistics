@@ -36,7 +36,7 @@ seed_rep = 10
 
 #----------------------------------------------------------------------------#
 # Directorio de trabajo
-dir_trab = r'C:\Users\coyol\OneDrive\Escritorio\bayesian_python\py_programs\cap7'
+dir_trab = r'C:\Users\coyol\OneDrive\Escritorio\bayesian_python\py_programs'
 data_miss = pd.read_csv(dir_trab  + r'\datos\pima_miss.csv', sep=',' ,index_col=0)
 data_full = pd.read_csv(dir_trab  + r'\datos\pima_full.csv', sep=',' ,index_col=0)
 
