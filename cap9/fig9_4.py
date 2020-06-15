@@ -67,7 +67,7 @@ for i in range(0, sims):
 draws_beta_sigma = np.array(draws_beta_sigma)
 
 #----------------------------------------------------------------------------#
-# Se predice para cada anho
+# Se predice la diferencia entre los que hacen ejercicio y no lo hacen para cada anho
 pos_bet2 = 1
 beta2 = np.array([i[pos_bet2] for i in draws_beta_sigma[:,0]])
 

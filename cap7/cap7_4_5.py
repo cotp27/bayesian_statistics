@@ -131,8 +131,7 @@ corr_mcmc = []
 corr_conv = np.zeros((p,p))
 for ix in range(0, mc_samp):
     Sig = sigmas_mcmc[ix]
-    desv_est = inv(np.sqrt(np.diag(np.diag(sigmas_mcmc[ix]))))    
-    corr = np.dot(np.dot(desv_est, Sig), desv_est)
+    corr = Sig/np.sqrt(np.dot(np.diag(Sig).reshape(p,1),np.diag(Sig).reshape(1,p)))
     corr_mcmc.append(corr)                      # Se guardan todas la matrices
     corr_conv = corr_conv + corr
 
@@ -192,8 +191,6 @@ for jb in range(0,p):
 hpd_beta_mean = {}
 hpd_beta_corr = {}
 beta_name = {0:'glu', 1:'bp', 2:'skin', 3:'bmi'}
-v_conteo = 1
-
 
 for ic in range(0, p):
     to_nump_dat = np.array(betas_mcmc[ic])[:,0]    
@@ -263,7 +260,6 @@ for y_i in range(0,n):
 axs_names = {0:'glu', 1:'skin', 2:'bp', 3:'bmi'}
 y_predict = y_predict.rename(columns={'glu':'glu_pred', 'bp':'bp_pred', 'skin':'skin_pred', 'bmi':'bmi_pred'})
 concatenated = pd.concat([data_full.assign(dataset='set1'), y_predict.assign(dataset='set2')], axis=1)
-
 
 fig1, axs1 = plt.subplots(2, 2)
 for i_plot, ax in zip(range(10), axs1.flat):

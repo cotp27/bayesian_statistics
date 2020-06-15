@@ -8,7 +8,7 @@ from numpy.linalg import inv
 import matplotlib.pyplot as plt
 
 # Semilla
-np.random.seed(50)
+np.random.seed(100)
 
 # Datos
 dir_trab = r'C:\Users\coyol\Desktop\bayesian_python\py_programs'
@@ -77,6 +77,7 @@ sims_z = [z_vec.tolist()]
 
 # Simulaciones
 sims = 10000
+sims = 10
 for ix in range(0, sims):
     # Se construye vector con el orden con el cual se evalua la simulacion
     reorder = np.random.permutation(range(0,X_orig.shape[1]))
@@ -87,7 +88,7 @@ for ix in range(0, sims):
         # Paso 2: Se cambia el jx componente del vector
         z_camb = z_vec.copy()        
         z_camb[jx] = 1 - z_camb[jx]
-
+        
         # Paso 3: Se calcula la verosimilitud con el nuevo vector 0->1 o 1->0
         z_bool = [True if i==1 else False for i in z_camb] # Se convierte el vecto en bool
         X_cond = np.array(X_orig.loc[:,z_bool])

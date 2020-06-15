@@ -57,14 +57,14 @@ def gamma_inv_hoff(a,b, samps=1):
     result = 1 / np.random.gamma(a, b_inv, samps)
     return result
 
-# Simulaciones
+# Simulaciones (en realidad es un simple montecarlo)
 sims = 2000
-gam_samp = gamma_inv_hoff((nu_0+n)/2, (nu_0*sigma2_0+SSR_g)/2, sims)    
+sigma2_samp = gamma_inv_hoff((nu_0+n)/2, (nu_0*sigma2_0+SSR_g)/2, sims) # aca muestreo la varianza   
 
 draws_beta_sigma = []
 for i in range(0, sims):    
-    mv_samp = np.random.multivariate_normal(g/(1+g) * beta_ols, g*gam_samp[i]/(1+g) * inv_XTX)
-    draws_beta_sigma.append([mv_samp, gam_samp[i]])
+    mv_samp = np.random.multivariate_normal(g/(1+g) * beta_ols, g*sigma2_samp[i]/(1+g) * inv_XTX)
+    draws_beta_sigma.append([mv_samp, sigma2_samp[i]])
 
 draws_beta_sigma = np.array(draws_beta_sigma)
 
